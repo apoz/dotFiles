@@ -85,6 +85,7 @@ colorscheme gruvbox
 
 " Basic configuration
 " line numbers
+set relativenumber
 set number
 
 " Indenting configuration
