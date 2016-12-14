@@ -56,8 +56,13 @@ if exists("&undodir")
   set undodir=~/.vim/undo
 endif
 
+" map leader to , 
+let mapleader = ","
+
 " Highlight searches
 set hlsearch
+" Removing the highlight of last search with ,<Space>
+nnoremap <Leader><Space> :nohlsearch<CR>
 " Ignore case of searches
 set ignorecase
 " Highlight dynamically as pattern is typed
@@ -74,8 +79,6 @@ set noerrorbells
 " Saving with sudo with :w!!
 cmap w!! w !sudo tee >/dev/null %
 
-" map leader to , 
-let mapleader = ","
 
 " Color scheme set
 filetype on
