@@ -1,6 +1,15 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Set true colors
+if (has("nvim"))
+"For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -14,12 +23,16 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'morhetz/gruvbox'
 Plugin 'sickill/vim-monokai'
+Plugin 'sts10/vim-mustard'
 
 " Nerdtree
 Plugin 'scrooloose/nerdtree'
 
 " vim-fugitive git wrapper
 Plugin 'tpope/vim-fugitive' 
+" git diff columns tool GitGutter
+Plugin 'airblade/vim-gitgutter'
+
 "ghlight current line
 set cursorline
 " Plugin airline
@@ -61,7 +74,6 @@ let mapleader = ","
 
 " Highlight searches
 set hlsearch
-" Removing the highlight of last search with ,<Space>
 nnoremap <Leader><Space> :nohlsearch<CR>
 " Ignore case of searches
 set ignorecase
@@ -117,7 +129,6 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 nnoremap <Leader>f :NERDTreeToggle<Enter>
 " Nerdtree show hidden files
 let NERDTreeShowHidden=1
-
 " Closing nerdtree when file is opened
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
@@ -125,3 +136,10 @@ let NERDTreeDirArrows = 1
 
 " Airline configuration
 set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline_theme='gruvbox'
+
+"GitGutter enable
+let g:gitgutter_enabled = 1
+let g:gitgutter_map_keys = 0
+set updatetime=250
