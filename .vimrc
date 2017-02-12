@@ -24,6 +24,9 @@ Plugin 'jpo/vim-railscasts-theme'
 Plugin 'morhetz/gruvbox'
 Plugin 'sickill/vim-monokai'
 Plugin 'sts10/vim-mustard'
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'KabbAmine/yowish.vim'
 
 " Nerdtree
 Plugin 'scrooloose/nerdtree'
