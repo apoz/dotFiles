@@ -24,22 +24,22 @@ Plugin 'jpo/vim-railscasts-theme'
 Plugin 'morhetz/gruvbox'
 Plugin 'sickill/vim-monokai'
 Plugin 'sts10/vim-mustard'
-Plugin 'whatyouhide/vim-gotham'
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'KabbAmine/yowish.vim'
+Plugin 'junegunn/seoul256.vim'
 
 " Nerdtree
 Plugin 'scrooloose/nerdtree'
 
 " vim-fugitive git wrapper
 Plugin 'tpope/vim-fugitive' 
-" git diff columns tool GitGutter
 Plugin 'airblade/vim-gitgutter'
 
 "ghlight current line
 set cursorline
 " Plugin airline
 Plugin 'bling/vim-airline'
+
+" Indent lines
+Plugin 'Yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -142,7 +142,11 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='gruvbox'
 
-"GitGutter enable
+" GitGutter enable
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
 set updatetime=250
+
+" Indentline configuration
+" " set indentline style
+let g:indentLine_char = '│'
