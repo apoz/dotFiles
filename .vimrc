@@ -44,6 +44,9 @@ Plugin 'Yggdroot/indentLine'
 "Tab autocompletion
 Plugin 'ervandew/supertab'
 
+" Syntastic linter
+Plugin 'vim-syntastic/syntastic'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -129,7 +132,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Start nerdtree when opening a directory as argument
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:stkd_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | endif
 
 " leader f for nerdtree start
 nnoremap <Leader>f :NERDTreeToggle<Enter>
@@ -153,3 +156,25 @@ set updatetime=250
 " Indentline configuration
 " " set indentline style
 let g:indentLine_char = '│'
+
+
+" Syntastic recommended config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+nnoremap <Leader>c :SyntasticReset<CR>:SyntasticCheck<CR>
+let g:syntastic_error_symbol = "⌦"
+let g:syntastic_warning_symbol = "⚠"
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Shell Linter -> Shellcheck  (brew install shellcheck)
+let g:syntastic_sh_checkers = ['shellcheck']
+" Python Linter -> Flake8  (brew install flake8)
+let g:syntastic_python_checkers = ['flake8']
+" Some pep8 errors to be ignored
+let g:syntastic_python_flake8_args='--ignore E501,E302,E231,E261,E201,W402,W293'
