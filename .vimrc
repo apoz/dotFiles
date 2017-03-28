@@ -163,18 +163,20 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-nnoremap <Leader>c :SyntasticReset<CR>:SyntasticCheck<CR>
-let g:syntastic_error_symbol = "⌦"
-let g:syntastic_warning_symbol = "⚠"
+nnoremap <Leader>c :SyntasticCheck<CR>:lopen<CR>
+nnoremap <Leader>x :lclose<CR>:SyntasticReset<CR>
+let g:syntastic_error_symbol = "💀"
+let g:syntastic_warning_symbol = "🐞"
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode="passive"
+let g:syntastic_enable_signs=1
 
 " Shell Linter -> Shellcheck  (brew install shellcheck)
 let g:syntastic_sh_checkers = ['shellcheck']
-" Python Linter -> Flake8  (brew install flake8)
 let g:syntastic_python_checkers = ['flake8']
-" Some pep8 errors to be ignored
+
 let g:syntastic_python_flake8_args='--ignore E501,E302,E231,E261,E201,W402,W293'
