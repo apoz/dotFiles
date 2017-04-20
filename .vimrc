@@ -33,6 +33,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive' 
 Plugin 'airblade/vim-gitgutter'
 
+" Conque Shell
+Plugin 'lrvick/Conque-Shell'
+" Plugin 'Conque-Shell'
+
 "ghlight current line
 set cursorline
 " Plugin airline
@@ -180,3 +184,8 @@ let g:syntastic_sh_checkers = ['shellcheck']
 let g:syntastic_python_checkers = ['flake8']
 
 let g:syntastic_python_flake8_args='--ignore E501,E302,E231,E261,E201,W402,W293'
+
+" Conque term
+nnoremap <Leader>q :q!<CR>
+nnoremap <Leader>t :ConqueTermSplit bash<CR>
+
