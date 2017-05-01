@@ -51,6 +51,10 @@ Plugin 'ervandew/supertab'
 " Syntastic linter
 Plugin 'vim-syntastic/syntastic'
 
+" Gutentags
+Plugin 'ludovicchabant/vim-gutentags'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -187,5 +191,11 @@ let g:syntastic_python_flake8_args='--ignore E501,E302,E231,E261,E201,W402,W293'
 
 " Conque term
 nnoremap <Leader>q :q!<CR>
-nnoremap <Leader>t :ConqueTermSplit bash<CR>
+nnoremap <Leader>s :ConqueTermSplit bash<CR>
+
+" Gutentags
+set statusline+=%{gutentags#statusline([Generating...])}
+nnoremap <Leader>t :GutentagsUpdate!<CR>
+nnoremap <Leader>d <C-]>
+nnoremap <Leader>b <C-t>
 
